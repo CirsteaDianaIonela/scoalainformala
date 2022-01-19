@@ -1,0 +1,1 @@
+print("primul nostru mesaj")
