@@ -13,5 +13,3 @@ print(mylist_ascending[1::2]) #lista cu numere pare
 print(mylist_ascending[::2]) #lista cu numere impare
 
 print(mylist_ascending[2::3]) # multipli ai nr 3
-
-
