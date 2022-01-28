@@ -6,7 +6,6 @@
 word = "onomataopee"
 # litera_cuvant = input("Alege o litera")
 # print(litera_cuvant)
-
 lista_cuvant = []
 for iterator in word:
     lista_cuvant.append("_")
@@ -32,8 +31,8 @@ while numar_incercari <= 7:
     elif " ".join(lista_cuvant) == word:
         print("Ai castigat!")
         break
-        print("De adaugat in lista cuvant")
+        print("De adaugat in lista cuvant..")
         lista_litere_incercate.append(litera)
-    print(" ".join(lista_cuvant)
+    print(" ".join(lista_cuvant))
 
 
