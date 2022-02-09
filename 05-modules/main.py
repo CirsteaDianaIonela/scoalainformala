@@ -75,20 +75,23 @@
 # except:
 #     #daca apare o exepctie si vrem sa afisam ceva
 
-try:
-    valoare = int(input("Prima cifra din CNP:"))
-    # impartire = 1/valoare
-    lista=1
-    # lista.append("2")
-    valoare =lista[0.5]
-except AttributeError:
-    print('eroare la atribuire')
-except ValueError:
-    print("Ai introdus o litera in loc de cifra")
-except ZeroDivisionError:
-    print("Eroare la impartire")
-except Exception as e:
-    print("Exceptie la impartire",e)
+# try:
+#     valoare = int(input("Prima cifra din CNP:"))
+#     # impartire = 1/valoare
+#     lista=1
+#     # lista.append("2")
+#     valoare =lista[0.5]
+# except AttributeError:
+#     print('eroare la atribuire')
+# except ValueError:
+#     print("Ai introdus o litera in loc de cifra")
+# except ZeroDivisionError:
+#     print("Eroare la impartire")
+# except Exception as e:
+#     print("Exceptie la impartire",e)
+
+#else
+# finally: se executa oricum
 
 
 

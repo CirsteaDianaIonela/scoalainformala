@@ -13,26 +13,25 @@ for iterator in word:
         lista_cuvant[-1] = iterator
 print(" ".join(lista_cuvant))
 numar_incercari = 1
-lista_litere_incercate = []
+lista_litere_incercate = set()
 while numar_incercari <= 7:
-    litera = input("Alege o litera: ").lower()
+    litera = input("Alege o litera: ")
     if litera.lower() in word.lower():
         for index, valoare in enumerate(word):
             if valoare.lower() == litera.lower():
                 lista_cuvant[index] = litera
     else:
-        lista_litere_incercate.append(litera.lower())
-        numar_incercari += 1
-        print(f'Litera nu exista, deja ai incercat urmatoarele litere {",".join(lista_litere_incercate)}')
-        print(f'Mai ai {7-numar_incercari} incercari')
-        if litera not in lista_litere_incercate:
-    if 9 - int(numar_incercari) == 0:
-        print(f"Ai pierdut! Cuvantul era {word}")
+        if litera.lower() not in list(lista_litere_incercate):
+            numar_incercari += 1
+    lista_litere_incercate.add(litera.lower())
+    print(f'Litera nu exista, deja ai incercat urmatoarele litere {",".join(lista_litere_incercate)}')
+    print(f'Mai ai {7-numar_incercari} incercari')
+    if 8 - int(numar_incercari) == 0:
+        print(f'Ai pierdut! Cuvantul era {word}')
     elif " ".join(lista_cuvant) == word:
         print("Ai castigat!")
         break
-        print("De adaugat in lista cuvant..")
-        lista_litere_incercate.append(litera)
-    print(" ".join(lista_cuvant))
+    else:
+        print(" ".join(lista_cuvant))
 
 
