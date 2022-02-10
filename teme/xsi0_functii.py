@@ -44,52 +44,52 @@ def joc():
 
         if lista[0] == lista[1] == lista[2] != "-":
             if lista[0] == "[X]":
-                print("Ai castigat")
+                print("Ai castigat, X")
                 break
             else:
-                print("Ai pierdut")
+                print("Ai pierdut X, a castigat 0")
         elif lista[3] == lista[4] == lista[5] != "-":
             if lista[3] == "[X]":
-                print("Ai castigat")
+                print("Ai castigat, X")
                 break
             else:
-                print("Ai pierdut")
+                print("Ai pierdut X, a castigat 0")
         elif lista[6] == lista[7] == lista[8] != "-":
             if lista[6] == "[X]":
-                print("Ai castigat")
+                print("Ai castigat, X")
                 break
             else:
-                print("Ai pierdut")
+                print("Ai pierdut X, a castigat 0")
         elif lista[0] == lista[4] == lista[8] != "-":
             if lista[0] == "[X]":
-                print("Ai castigat")
+                print("Ai castigat, X")
                 break
             else:
-                print("Ai pierdut")
+                print("Ai pierdut X, a castigat 0")
         elif lista[2] == lista[4] == lista[6] != "-":
             if lista[2] == "[X]":
-                print("Ai castigat")
+                print("Ai castigat, X")
                 break
             else:
-                print("Ai pierdut")
+                print("Ai pierdut X, a castigat 0")
         elif lista[0] == lista[3] == lista[6] != "-":
             if lista[0] == "[X]":
-                print("Ai castigat")
+                print("Ai castigat, X")
                 break
             else:
-                print("Ai pierdut")
+                print("Ai pierdut X, a castigat 0")
         elif lista[1] == lista[4] == lista[7] != "-":
             if lista[1] == "[X]":
-                print("Ai castigat")
+                print("Ai castigat X")
                 break
             else:
-                print("Ai pierdut")
+                print("Ai pierdut X, a castigat 0")
         elif lista[2] == lista[5] == lista[8] != ["-"]:
             if lista[2] == ["X"]:
-                print("Ai castigat")
+                print("Ai castigat, X")
                 break
             else:
-                print("Ai pierdut")
+                print("Ai pierdut X, a castigat 0")
 
 joc()
 
