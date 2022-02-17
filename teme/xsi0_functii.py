@@ -6,16 +6,26 @@
 # Prima valoare disponibila dintre acestea va fi marcata cu “O” de catre masina/robot
 # • In cazul in care toate acestea sunt ocupate se incearca prima valoare ramasa libera dintre 2,4,6,8
 
-def joc():
-    import random
+
+import random
+msg = " "
+lista = ["-", "-", "-",
+         "-", "-", "-",
+         "-", "-", "-"]
+def inceput_joc():
     intrebare = input('Vrei sa incepi tu jocul? "y/n"')
-    lista = ["-", "-", "-",
-             "-", "-", "-",
-             "-", "-", "-"]
     if intrebare == "y":
+        return "Hai sa jucam :)"
+    else:
+        return "Nu mai jucam :("
+
+def alegeri_jucator(lista):
         valoare_utilizator = int(input("Spune-mi o un numar intre 1 si 9!"))
         if lista[valoare_utilizator - 1] == "-":
             lista[valoare_utilizator - 1] = '[X]'
+            return msg
+
+def alegeri_calculator(lista):
     while "-" in lista:
 
         if lista[4] == "-":
@@ -34,64 +44,80 @@ def joc():
             while computer_choice not in ramas:
                 lista[computer_choice] = "[0]"
                 break
-        print("{}\t{}\t{} \n{}\t{}\t{}\n{}\t{}\t{}".
-              format(lista[0], lista[1], lista[2], lista[3],
-                     lista[4], lista[5], lista[6], lista[7], lista[8]))
+            return msg
 
-        valoare_utilizator = int(input("Spune-mi o un numar intre 1 si 9!"))
-        if lista[valoare_utilizator - 1] == "-":
-            lista[valoare_utilizator - 1] = '[X]'
 
+def castigator():
         if lista[0] == lista[1] == lista[2] != "-":
             if lista[0] == "[X]":
-                print("Ai castigat, X")
-                break
+                return True
             else:
-                print("Ai pierdut X, a castigat 0")
+                return False
+
         elif lista[3] == lista[4] == lista[5] != "-":
             if lista[3] == "[X]":
-                print("Ai castigat, X")
-                break
+                return True
             else:
-                print("Ai pierdut X, a castigat 0")
+                return False
+
         elif lista[6] == lista[7] == lista[8] != "-":
             if lista[6] == "[X]":
-                print("Ai castigat, X")
-                break
+                return True
             else:
-                print("Ai pierdut X, a castigat 0")
+                return False
+
         elif lista[0] == lista[4] == lista[8] != "-":
             if lista[0] == "[X]":
-                print("Ai castigat, X")
-                break
+                return True
             else:
-                print("Ai pierdut X, a castigat 0")
+                return False
+
         elif lista[2] == lista[4] == lista[6] != "-":
             if lista[2] == "[X]":
-                print("Ai castigat, X")
-                break
+                return True
             else:
-                print("Ai pierdut X, a castigat 0")
+                return False
+
         elif lista[0] == lista[3] == lista[6] != "-":
             if lista[0] == "[X]":
-                print("Ai castigat, X")
-                break
+                return True
             else:
-                print("Ai pierdut X, a castigat 0")
+                return False
+
         elif lista[1] == lista[4] == lista[7] != "-":
             if lista[1] == "[X]":
-                print("Ai castigat X")
-                break
+                return True
             else:
-                print("Ai pierdut X, a castigat 0")
+                return False
+
         elif lista[2] == lista[5] == lista[8] != ["-"]:
             if lista[2] == ["X"]:
-                print("Ai castigat, X")
-                break
+                return True
             else:
-                print("Ai pierdut X, a castigat 0")
+                return False
+        return msg
+
+def joc():
+    if inceput_joc():
+        while not castigator(lista):
+            alegeri_jucator(lista)
+            print("{}\t{}\t{} \n{}\t{}\t{}\n{}\t{}\t{}".
+            format(lista[0], lista[1], lista[2], lista[3],
+                    lista[4], lista[5], lista[6], lista[7], lista[8]))
+            alegeri_calculator(lista)
+            print("{}\t{}\t{} \n{}\t{}\t{}\n{}\t{}\t{}".
+            format(lista[0], lista[1], lista[2], lista[3],
+                    lista[4], lista[5], lista[6], lista[7], lista[8]))
+    else:
+        while not castigator(lista):
+            alegeri_calculator(lista)
+            print("{}\t{}\t{} \n{}\t{}\t{}\n{}\t{}\t{}".
+            format(lista[0], lista[1], lista[2], lista[3],
+                    lista[4], lista[5], lista[6], lista[7], lista[8]))
+            alegeri_jucator(lista)
+            print("{}\t{}\t{} \n{}\t{}\t{}\n{}\t{}\t{}".
+            format(lista[0], lista[1], lista[2], lista[3],
+                    lista[4], lista[5], lista[6], lista[7], lista[8]))
 
 joc()
-
-
 
