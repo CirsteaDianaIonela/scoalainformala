@@ -2,19 +2,22 @@ import datetime
 CNP = input("Introdu CNP-ul: ")
 CNP_introdus = list(CNP)
 data = slice(1, 7, 1)
+judet = slice(7, 9, 1)
 data_nasterii = CNP[data]
 msg = " "
 
+
 def lungime():
     if len(CNP_introdus) == 13:
-        return msg
+        return True
+
 
 def S():
-     if CNP_introdus[0] == 0:
-         return False
+    if CNP_introdus[0] != "0":
+        return True
+
 
 def AA_LL_ZZ():
-    msg = " "
     data = slice(1, 7, 1)
     data = data_nasterii
     try:
@@ -22,6 +25,7 @@ def AA_LL_ZZ():
         return True
     except ValueError:
         return False
+
 
 def JJ():
     jud = ['01', 'Alba', '02', 'Arad', '03', 'Arges', '04', 'Bacau', '05', 'Bihor', '06', 'Bistrita-Nasaud', '07',
@@ -35,15 +39,22 @@ def JJ():
            'Giurgiu']
 
     judet = slice(7, 9, 1)
-    if judet in jud:
-        return msg
+    judet_n = CNP[judet]
+    while judet_n in jud:
+        return True
+
 
 def cifra_de_control():
-        nr_control = (2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9)
-        val = sum(a * int(b) for a, b in zip(nr_control, CNP_introdus)) % 11
-        return '1' if val == 10 else str(val)
+    nr_control = (2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9)
+    val = sum(a * int(b) for a, b in zip(nr_control, CNP_introdus)) % 11
+    return '1' if val == 10 else str(val)
 
-if cifra_de_control() == CNP_introdus[12] and lungime() and S() and JJ() and AA_LL_ZZ():
+
+def caractere_cnp():
+    if CNP.isdigit():
+        return True
+
+if lungime() == S() == AA_LL_ZZ() == JJ() == caractere_cnp() and cifra_de_control() == CNP_introdus[12]:
     msg = "CNP valid"
     print(msg)
 else:
