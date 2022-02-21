@@ -43,6 +43,10 @@ def JJ():
     while judet_n in jud:
         return True
 
+def NNN():
+    nnn=slice(10,13,1)
+    if CNP[nnn] in range(1,1000):
+        return True
 
 def cifra_de_control():
     nr_control = (2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9)
@@ -54,7 +58,7 @@ def caractere_cnp():
     if CNP.isdigit():
         return True
 
-if lungime() == S() == AA_LL_ZZ() == JJ() == caractere_cnp() and cifra_de_control() == CNP_introdus[12]:
+if lungime() and S() and AA_LL_ZZ() and JJ() and caractere_cnp() and NNN() and cifra_de_control() == CNP_introdus[12]:
     msg = "CNP valid"
     print(msg)
 else:
