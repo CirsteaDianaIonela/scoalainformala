@@ -1,5 +1,5 @@
 #● Să se scrie o funcție care citește de la tastatură și returnează valoarea dacă aceasta este un număr întreg, altfel returnează valoarea 0.
-#
+
 def functie():
     msg = " "
     nr_introdus=input("Spune-mi o valoare: ")
@@ -36,4 +36,42 @@ your_function(2, 4, "ab", "param_1 = 2")
 
 
 
+#tema curs functia recursiva care primeste parametru de la tastatura si returneaza:
+# suma numerelor de la 0 la n
+# suma numerelor pare
+# suma numerelor impare
+
+def functie_recursiva():
+
+    try:
+        nr_introdus = int(input("Spune-mi valoarea lui n: "))
+        valoare = nr_introdus
+
+        if valoare<0:
+            return("Numarul intreg introdus trebuie sa fie pozitiv")
+
+        suma_totala = 0
+        for item in range(valoare + 1):
+            suma_totala = suma_totala + item
+
+
+        suma_pare = 0
+        for item in range(valoare + 1):
+            if item % 2 == 0:
+                suma_pare = suma_pare + item
+
+        suma_impare = 0
+        for item in range(valoare + 1):
+            if item % 2 != 0:
+                suma_impare = suma_impare + item
+
+        return suma_totala, suma_pare, suma_impare
+
+
+    except ValueError:
+
+        return("Trebuie sa introduci un numar intreg!")
+
+
+print(functie_recursiva())
 
