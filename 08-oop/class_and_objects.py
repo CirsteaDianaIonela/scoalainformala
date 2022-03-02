@@ -26,22 +26,28 @@
 # # print(cainele_meu)
 # print(cainele_meu.varsta)
 
-class Calculator:
 
-    def __init__(self, op1, op2, operation):
-        self.operator1 = op1
-        self.operator2 = op2
-        self.operatie = operation #self ne ajuta sa putem prelua valorile din paramentii din init
 
-    def adunare (self):
-        return self.operator1 + self.operator2
+# class Calculator:
+#
+#     def __init__(self, op1, op2, operation):
+#         self.operator1 = op1
+#         self.operator2 = op2
+#         self.operatie = operation #self ne ajuta sa putem prelua valorile din paramentii din init
+#
+#     def adunare (self):
+#         return self.operator1 + self.operator2
+#
+#     def __str__(self):
+#         if self.operatie == "+":
+#             return f"{self.adunare()}"
+#
+# obiect1 = Calculator(1, 2, "+")
+# print(obiect1)
 
-    def __str__(self):
-        if self.operatie == "+":
-            return f"{self.adunare()}"
 
-obiect1 = Calculator(1, 2, "+")
-print(obiect1)
+
+
 
 
 
