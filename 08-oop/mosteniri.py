@@ -141,4 +141,135 @@
 # !!!!!!!!VEZI IN INREGISTRARE hasattr -> verifica daca exista atributul respectiv
 # numele unei case se verifica cu prin(type(obiect1).__name__)
 
+# MOSTENIRI:
+
+# Ex1:
+# class Star:
+#     def __init__(self, nume, galaxie):
+#         self.name = nume
+#         self.galaxy = galaxie
+#
+#     def __str__(self): #ce vrem sa afisam pe ecran
+#         return f'{self.name} este in {self.galaxy}'
+#
+# soare = Star("Soarele", "Calea Lacteei")#definire obiect soare
+# print(soare)
+
+
+# Ex2:
+
+#vehicul #clasa principala
+#vehicul de teren  #subclasa
+#vehicul de tractare #subclasa de subclasa
+#citirea se face de la stanga la dreapta
+
+#
+# class Vehicul:
+#     pass
+#
+# class VehiculTeren(Vehicul): #subclasa VehiculTeren, clasa principala Vehicul -> pun in paranteza clasa mama
+#     pass
+#
+# class VehiculTractare(VehiculTeren):
+#     pass
+
+#parinti sunt: Vehicul pentru VehiculTeren (direct) si VehiculTranctare (indirect)
+#parinti sunt Vehicul Teren pentru VehiculTractare
+#parintii sunt superclasa pentru copii (superclass)
+#copii sunt VehiculTeren (direct) si VehiculTractare (indirect) pentru Vehicul
+#copilul este VehiculTractare pentru VehiculTeren
+#copiii se numesc subclase
+
+# print("Vehicul VehiculTeren VehiculTractare")
+# for cls1 in [Vehicul, VehiculTeren, VehiculTractare]:
+#     for cls2 in [Vehicul, VehiculTeren, VehiculTractare]:
+#         print(issubclass(cls1, cls2), end = '\t') #afiseaza o lista cu valorile superclaselor
+
+# vehicul1 = Vehicul() #instante
+# vehicul_teren = VehiculTeren()
+# vehicul_tractare = VehiculTractare()
+# # print(isinstance(vehicul1, VehiculTractare)) #vedem daca o clasa are mostenire din alta clasa
+#
+# for obj in [vehicul1, vehicul_teren, vehicul_tractare]:
+#     for cls in [Vehicul, VehiculTeren, VehiculTractare]:
+#         print(isinstance(obj, cls), end = '\t')
+#     print()
+#
+
+#
+# # EX 3
+# class Exemplu:
+#
+#     def __init__(self, val):
+#         self.value = val
+#
+# obiect_1 = Exemplu(0) #returneaza
+# # print(obiect_1.value, '223')
+# obiect_2 = Exemplu(2)
+# # print(obiect_2.value, '225')
+# obiect_3 = obiect_1
+# # print(obiect_3, obiect_1, "227")
+# obiect_3.value += 1
+#
+# # print(obiect_1 is obiect_2 ) #false
+# # print(obiect_2 is obiect_3)
+# # print(obiect_3 is obiect_1) #true)
+# # print(obiect_1.value, obiect_2.value, obiect_3.value)
+#
+# string1 = "Maria are mere"
+# string2 = string1
+# string2 = 'www'
+#
+# # string2 = "Maria are mere mari"
+# # string1 += "mari"
+#
+# print(string1 == string2, string1 is string2)
+
+
+# Ex:4
+
+class SuperClass:
+    supVar = 1
+    variabila_clasa = 6
+
+    def __init__(self, nume):
+        self.name = nume
+        self.var_1 = 101
+
+    def __str__(self):
+        return f'Numele meu este {self.name}'
+
+
+class Clasa3:
+    variabila_clasa = 5
+    def __int__(self,nume):
+        self.name = nume
+        self.var_2 = 201
+
+
+class SubClass(Clasa3, SuperClass):
+    subVar = 2
+    supVar = 3
+    def __init__(self, nume):
+        self.var_1 = 202
+        print(self.var_1)
+        super().__init__(nume) #ne ajuta daca avem mai multe mosteniri, invoca constructorul super clasei, ne da acces la toate resursele super clasei
+        self.var_3 = 301
+        # self.name = nume
+        # Super.__init__(self,nume)
+
+    # def __str__(self):
+    #     return f'Nume'
+
+obiect = SubClass("Alexandra")
+# print(obiect.subVar)
+# print(obiect.supVar)
+# print(obiect.variabila_clasa)
+print(obiect.var_3)
+# print(obiect.var_2)
+# print(obiect.var_1)
+
+
+
+
 
