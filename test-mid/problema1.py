@@ -2,7 +2,7 @@
 
 def suma_numere(a, b , c):
     suma = 0
-    if a == b and a == b:
+    if a == b and a == c:
         suma = (a+b+c)*3
     else:
         suma = a+b+c
