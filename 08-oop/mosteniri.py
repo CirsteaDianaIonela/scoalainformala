@@ -227,49 +227,80 @@
 
 
 # Ex:4
-
-class SuperClass:
-    supVar = 1
-    variabila_clasa = 6
-
-    def __init__(self, nume):
-        self.name = nume
-        self.var_1 = 101
-
-    def __str__(self):
-        return f'Numele meu este {self.name}'
-
-
-class Clasa3:
-    variabila_clasa = 5
-    def __int__(self,nume):
-        self.name = nume
-        self.var_2 = 201
-
-
-class SubClass(Clasa3, SuperClass):
-    subVar = 2
-    supVar = 3
-    def __init__(self, nume):
-        self.var_1 = 202
-        print(self.var_1)
-        super().__init__(nume) #ne ajuta daca avem mai multe mosteniri, invoca constructorul super clasei, ne da acces la toate resursele super clasei
-        self.var_3 = 301
+#
+# class SuperClass:
+#     supVar = 1
+#     variabila_clasa = 6
+#
+#     def __init__(self, nume):
+#         self.name = nume
+#         self.var_1 = 101
+#
+#     def __str__(self):
+#         return f'Numele meu este {self.name}'
+#
+#
+# class Clasa3:
+#     variabila_clasa = 5
+#     def __int__(self,nume):
+#         self.name = nume
+#         self.var_2 = 201
+#
+#
+# class SubClass(Clasa3, SuperClass):
+#     subVar = 2
+#     supVar = 3
+#     def __init__(self, nume):
+#         self.var_1 = 202
+#         print(self.var_1)
+#         super().__init__(nume) #ne ajuta daca avem mai multe mosteniri, invoca constructorul super clasei, ne da acces la toate resursele super clasei
+#         self.var_3 = 301
         # self.name = nume
         # Super.__init__(self,nume)
 
     # def __str__(self):
     #     return f'Nume'
 
-obiect = SubClass("Alexandra")
+# obiect = SubClass("Alexandra")
 # print(obiect.subVar)
 # print(obiect.supVar)
 # print(obiect.variabila_clasa)
-print(obiect.var_3)
+# print(obiect.var_3)
 # print(obiect.var_2)
 # print(obiect.var_1)
 
 
+# Exemplu:
+
+class A:
+    def info(self):
+        return "Clasa A"
+
+class F:
+    def info(self):
+        return "Clasa F"
+
+class B(F):
+    pass
+    # def info(self):
+    #     return "Clasa A"
 
 
+class C(F):
+    # def info(self):
+    #     return "Clasa C"
+    pass
+
+
+class D(B, C):
+
+    pass
+
+print(D().info()) #returneaza B ca ia de la stanga la dreapta
+
+#la mine nu merge, am eroare la ex de mai sus
+
+#dezavantaj: 1) atentie cum scriem, ordinea, citeste de la stranga la dreapta!!!!
+#2) atentie la eroare MRO -> ordinea de mostenire , sa nu fie mosteniri inaltuite, B mosteneste A, C mosteneste A si B -> da erorare MRO pt ca mosteneste de 2 ori A, sa nu mosteneasca de ori aceeasi clasa direct sau indirect
+#atentie la mostenirea indirecta
 
