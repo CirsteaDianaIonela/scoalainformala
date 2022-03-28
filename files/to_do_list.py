@@ -4,6 +4,8 @@ import datetime
 actiune = ""
 id = 0
 
+#input dintr-un fisier, În prima faza se adaugă categoriile dorite de la tastatură:
+
 lista_categorii = list(["curs", "cumparaturi", "munca", "cadouri"])
 
 task = input("Spune-mi task-ul: ")
@@ -11,7 +13,7 @@ task = input("Spune-mi task-ul: ")
 data_limita = input("Spune-mi data limita: ")
 
 
-def verificare_data():
+def verificare_data(): #de facut cu while, please enter c for exist
 
     data_verificata = data_limita
     try:
@@ -33,7 +35,7 @@ else:
 status = input("Spune-mi statusul task-ului: activ sau inactiv: ")
 
 linie_task = {
-    "id": 1,
+    "id": 0,
     "task": task,
     "deadline": data_limita,
     "persoana_responsabila": responsabilul,
@@ -43,7 +45,7 @@ linie_task = {
 }
 
 coloane_tabel = [task, data_limita, responsabilul, categorie_task, status]
-tabel_tasks = pd.DataFrame(coloane_tabel)
+tabel_tasks = pd.DataFrame(coloane_tabel) #de scris in cvs
 
 while actiune != 'i':
     actiune = str(input("Actiuni asupra datelor din tabel : 'l' inseamna listare date (afisare date),"
@@ -62,7 +64,7 @@ while actiune != 'i':
         categorie_task = input("Spune-mi categoria din care face parte task-ul: ")
         status = input("Spune-mi statusul task-ului: activ sau inactiv: ")
         tabel_tasks_adaugat = tabel_tasks_adaugat.append({
-            "id": 1,
+            "id": id+1,
             "task": task,
             "deadline": data_limita,
             "persoana_responsabila": responsabilul,
@@ -138,3 +140,5 @@ while actiune != 'i':
 #  Editarea detaliilor referitoare la task dată, persoană sau categorie dintr-un anumit task ales de utilizator de la
 #  tastatură (când se cere această opțiune, se va lista lista de taskuri cu un identificator unic pe rand, astfel încât
 #  să se știe ce informație urmează să editeze utilizatorul)
+
+# df.to_csv('my_csv.csv', mode='a', header=False)

@@ -11,17 +11,17 @@
 # Numaratoarea de start si end incepe cu indexul 1. Se pot introduce de la
 # tastatura alte valori pentru index si text, cat si un numar mai mare de liste.
 #
+#
+def string_inital(*args):
 
-# def string_inital(*args):
-#
-#     text = "The Inquisitor must meet Varric on top of Skyhold's battlements to be introduced."
-#     a = text.split(" ")
-#     a[1] = "Conquistador"
-#     a[4] = "King"
-#     a[8] = "Palace"
-#     return ' '.join(a)
-#
-# print(string_inital())
+    text = "The Inquisitor must meet Varric on top of Skyhold's battlements to be introduced."
+    a = text.split(" ")
+    a[1] = "Conquistador"
+    a[4] = "King"
+    a[8] = "Palace"
+    return ' '.join(a)
+
+print(string_inital())
 
 
 # def string_v2 ():
@@ -52,15 +52,15 @@ for i in lista_nume: # 2. Determinati numarul de aparitii al fiecarui nume
     dictionar_nume[i] = lista_nume.count(i)
 print(dictionar_nume)
 
-# dict_sortat = max(dictionar_nume.values())
-# print(dict_sortat.keys())
+dict_sortat = max(dictionar_nume.values())
+print(dict_sortat.keys())
 
-# dictionar_nume = {}
-# for i in lista_nume:
-#     dictionar_nume[i] = lista_nume.count(i)
-#     all_values = dictionar_nume.values()
-#     max_value = max(all_values)
-# print(max_value)
+dictionar_nume = {}
+for i in lista_nume:
+    dictionar_nume[i] = lista_nume.count(i)
+    all_values = dictionar_nume.values()
+    max_value = max(all_values)
+print(max_value)
 
 
 

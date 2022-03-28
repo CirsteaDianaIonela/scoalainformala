@@ -35,7 +35,7 @@ def joc():
 
     return optiuni_calculator,msg
 
-optiuni, mesaj = joc()
+optiuni, mesaj = joc()   #apelez functia
 print(f'Optiunea calculatorului a fost {optiuni}\n', mesaj)
 
 joc_nou = input("Vrei sa joci din nou? y/n")

@@ -1,4 +1,5 @@
 #extrage si stoca date
+
 import json
 x = '{"name": "Ion", "age": 30, "city": "Iasi"}'
 y = json.loads(x)
@@ -18,8 +19,6 @@ a = True
 print(a, json.dumps(a), type(a))
 a = None
 print(a, json.dumps(a), type(a))
-
-
 
 
 

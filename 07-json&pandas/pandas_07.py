@@ -58,21 +58,21 @@ import pandas as pd
 # print(variabila.loc["producator1"])  #accesez anumite date de pe un anumit rand/coloana returneaza dacia si rosu
 
 
-
-data = {
-    "producator1": {
-        "masini": "Dacia",
-        "culoare": "rosu"
-    },
-    "producator2": {
-        "masini": "Volvo",
-        "culoare": "alb"
-    },
-    "producator3": {
-        "masini":"Renault",
-        "culoare": "verde"
-    }
-}
+#
+# data = {
+#     "producator1": {
+#         "masini": "Dacia",
+#         "culoare": "rosu"
+#     },
+#     "producator2": {
+#         "masini": "Volvo",
+#         "culoare": "alb"
+#     },
+#     "producator3": {
+#         "masini":"Renault",
+#         "culoare": "verde"
+#     }
+# }
 
 # variabila1 = pd.DataFrame(data)
 # print(variabila1)
@@ -87,6 +87,11 @@ data = {
 
 
 #salvare date dintr-un dataframe in excel
-variabila1 =pd.DataFrame(data)
-fisier =variabila1.to_csv("data.csv")
+# variabila1 =pd.DataFrame(data)
+# fisier =variabila1.to_csv("data.csv")
+
+
+
+
+
 
