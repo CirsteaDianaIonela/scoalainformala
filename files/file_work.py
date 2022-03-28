@@ -33,7 +33,7 @@
 #     file.write("Buna dimineata")
 
 
-
+#
 # with open("fisier2.txt","a") as file:
 #     file.write("Buna dimineata1")
 
@@ -43,10 +43,10 @@
 #     for line in file.readlines():
 #         print("line",line)
 
-
-with open("fisier2.txt","r") as file:
-    for line in list(file):
-        print("line",line)
+#
+# with open("fisier2.txt","r") as file:
+#     for line in list(file):
+#         print("line",line)
 
 
 

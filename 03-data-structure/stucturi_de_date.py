@@ -10,7 +10,7 @@ lista_total = lista + lista_1
 # tuplu_nou = ("1",)
 # print(type(tuplu_nou))
 
-# dictionar = {"cheie1": '1', 1:, '1', 'lista': [1,2,3]}
+dictionar = {"cheie1": '1', 1: '1', 'lista': [1,2,3]}
 # # print(dictionar["cheie1"])
 # # # print(dictionar.get('cheie2'))
 # # dictionar['cheie1']=2
@@ -18,11 +18,11 @@ lista_total = lista + lista_1
 # dictionar.update({"cheie2": 4})
 # print(dictionar.keys())
 # print(dictionar.items())
-
-# setul_meu={}
-setul_meu={1,1,3}
-print(setul_meu)
-print(set(lista_total))
-
+#
+# # setul_meu={}
+# setul_meu={1,1,3}
+# print(setul_meu)
+# print(set(lista_total))
+print(dictionar)
 
 

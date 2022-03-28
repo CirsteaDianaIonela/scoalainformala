@@ -127,23 +127,24 @@
 
 # STATIC METOD
 
-from datetime import date
-class Persoana:
+# from datetime import date
+# class Persoana:
+#
+#     def __init__(self, nume, varsta):
+#         self.nume = nume
+#         self.varsta = varsta
+#
+#     @classmethod #transfera in metoda de clasa, dependent de constructor
+#     def varsta_ani(cls, nume, varsta):
+#         return cls (nume, date.today().year - varsta)
+#
+#     @staticmethod #independent de constructor
+#     def stare(ani):  #ajuta sa apelam o metoda fara sa folosim self, nu tine cont de nume si varsta
+#         return ani > 18
+#
+# persoana_1 = Persoana("Ion", 21)
+# # print(persoana_1.varsta)
+# persoana_2 = Persoana.varsta_ani("Maria",20)
+# print(persoana_2.varsta)
+# print(Persoana.stare(25))
 
-    def __init__(self, nume, varsta):
-        self.nume = nume
-        self.varsta = varsta
-
-    @classmethod #transfera in metoda de clasa, dependent de constructor
-    def varsta_ani(cls, nume, varsta):
-        return cls (nume, date.today().year - varsta)
-
-    @staticmethod #independent de constructor
-    def stare(ani):  #ajuta sa apelam o metoda fara sa folosim self, nu tine cont de nume si varsta
-        return ani > 18
-
-persoana_1 = Persoana("Ion", 21)
-# print(persoana_1.varsta)
-persoana_2 = Persoana.varsta_ani("Maria",20)
-print(persoana_2.varsta)
-print(Persoana.stare(25))

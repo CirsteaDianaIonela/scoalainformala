@@ -3,10 +3,10 @@ import datetime
 
 class Validator:
 
-    def __init__(self, cnp):
+    def __init__(self, cnp): #constructor
         self.CNP = cnp
 
-    def lungime(self):
+    def lungime(self): #metoda
         if len(self.CNP) != 13:
             return False
         return True
@@ -48,7 +48,7 @@ class Validator:
         val = sum(a * int(b) for a, b in zip(nr_control, self.CNP)) % 11
         return '1' if val == 10 else str(val)
 
-    def __str__(self):
+    def __str__(self): #afisare rezultat
         if self.lungime() is True and self.sex() is True and self.data() is True and self.judet() is True and self.caractere_cnp() is True and self.nnn() is True and self.c() == self.CNP[12]:
             return f"Cnp-ul  {self.CNP} este valid"
         return f"Cnp-ul  {self.CNP} nu este valid"
