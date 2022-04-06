@@ -132,7 +132,7 @@ while actiune != 'i':  #daca nu merge pune o alta modalitate de iesire in loc de
             tabel_tasks = tabel_tasks.query("persoana_responsabila", inplace=True)
             print(tabel_tasks)
         elif filtrare_date == 4:
-            tabel_tasks= tabel_tasks.query("categoria_task", inplace=True)
+            tabel_tasks = tabel_tasks.query("categoria_task", inplace=True)
             print(tabel_tasks)
         else:
             pass

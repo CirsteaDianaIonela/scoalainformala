@@ -186,29 +186,100 @@
 # • cu 2 parametrii numerici
 
 
-class Calcul:
-    def __init__(self, a=1, b=2, c=3, d=4 ):
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
+# class Calcul:
+#     def __init__(self, a=1, b=2, c=3, d=4 ):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
+#
+#     def verificare(self):
+#         self.e = f"Informatiile introduse nu sunt cifre"
+#         if str(self.a).isnumeric() and str(self.b).isnumeric()and str(self.c).isnumeric() and str(self.d).isnumeric():
+#             self.e = (self.a * (self.b + 3) / self.c) * self.d
+#         return self.e
+#
+#     def __str__(self):
+#         return f"Rezultatul este: {self.verificare()}"
+#
+# obiect = Calcul()
+# print(obiect)
+# obiect2=Calcul(5,6,7,8)
+# print(obiect2)
+# obiect3 = Calcul("x","y","z",2)
+# print(obiect3)
+# obiect4 = Calcul(9,2)
+# print(obiect4)
 
-    def verificare(self):
-        self.e = f"Informatiile introduse nu sunt cifre"
-        if str(self.a).isnumeric() and str(self.b).isnumeric()and str(self.c).isnumeric() and str(self.d).isnumeric():
-            self.e = (self.a * (self.b + 3) / self.c) * self.d
-        return self.e
+
+# EXERCITIU
+# Creati o clasa care se numeste lista_CD_DVD.
+# La crearea unui obiect ala cestei clase va solicita doua argumente reprezentand titlu si
+# continut cu care va crea doua atribute.
+# Fiecare obiect creat va fi adaugat intr-o lista din namespace-ul global Clasa are o
+# metoda care cauta si gaseste pe baza textului dat ca argument un obiect, afisiand titlu
+# si continutul. Se va folosi lista de obiecte pentru a cauta.
+# La afisarea obiectului returnati utilizand metoda __str__ titlul obiectului.
+# Aplicati clasa pentru 3 exemple apoi folositi cautarea pe un caz pozitiv si unul
+# negativ. Printati cele 3 obiecte
+
+# class ListaCDDVD:
+#     lista_obj = []
+#     def __init__(self, titlu, continut):
+#         self.titlu = titlu
+#         self.continut = continut
+#         caracteristici_obiect = [self.titlu, self.continut]
+#
+#
+
+# EX 3. Creati un program ce are o clasa numita util. Clasa are o variabila a clasei de tip lista
+# populata automat in constructor(__init__) cu obiectul.
+# Creati a doua clasa numita izatori care primeste in constructor doua argumente numite
+# user si passw, formand cu ajutorul acestora doua atribute cu acelasi nume.
+# Creati a treia clasa numita utilizatori care sa mosteneasca clasele util și izatori fără a
+# pierde din functionalitatea claselor mostenite.
+# De asemenea, aceasta clasa are o metoda privata numita parole care sa returneze un
+# set cu toate parolele și o metoda privata numita useri care sa returneze un set cu toți
+# userii. Se va folosi variabila clasei de tip lista care are toate obiectele pentru căutare.
+# Interpretorul trebuie sa ridice o eroare setata de voi în cazul în care este apelat
+# obiectul prin len(). Setati 3 obiecte și testați functionalitatea.
+
+class Util:
+
+    lista_obj = []
+
+    def __init__(self):
+        self.lista_obj.append(self)
 
     def __str__(self):
-        return f"Rezultatul este: {self.verificare()}"
+        return f"{self.lista_obj}"
 
-obiect = Calcul()
-print(obiect)
-obiect2=Calcul(5,6,7,8)
-print(obiect2)
-obiect3 = Calcul("x","y","z",2)
-print(obiect3)
-obiect4 = Calcul(9,2)
-print(obiect4)
+class Izatori():
+    def __init__(self, user, passw):
+        self.user = user
+        self.passw = passw
 
+class Utilizatori(Util, Izatori):
+    set_parole = set()
+    set_useri = set()
 
+    def __init__(self, user, passw):
+        Util.__init__(self)
+        Izatori.__init__(self, user, passw)
+
+    @staticmethod
+    def __parole ():
+        for i in Utilizatori.lista_obj:
+            Utilizatori.set_parole.add(i.passw)
+        return f'Lista de parole este: {Utilizatori.set_parole}'
+
+om_bun = Utilizatori("pisici", "catei")
+om_bun2 = Utilizatori("pisicile", "cateii")
+om_bun4 = Utilizatori("dinozauri", "balauri")
+
+print(Utilizatori.lista_obj)
+
+print(om_bun.user)
+
+print(Utilizatori.__dict__)
+# print(_Util__parole) #aici e problema

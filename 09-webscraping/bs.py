@@ -1,4 +1,5 @@
 #click dr inspect pe o pagina web si vad codul in elements
+#beautiful soup este o librarie
 # https://www.bnr.ro/Cursul-de-schimb--7372.aspx
 #BeautifulSoup este o clasa
 from bs4 import BeautifulSoup
