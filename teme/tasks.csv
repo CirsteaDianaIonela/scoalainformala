@@ -1,3 +1,5 @@
 ,id,task,deadline,persoana_responsabila,categoria_task,status
-0,a,b,b,b,b,b
-1,a,a,a,a,a,a
+0,1,citit,20.08.2022 22:05,Diana,curs,activ
+1,2,inot,15.07.2022 20:10,George,sport,activ
+3,4,plimbare,12.12.2022 10:10,Mara,sport,activ
+2,3,prajitura,23.11.2022 14:00,Roza,gatit,activ
