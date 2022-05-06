@@ -4,36 +4,37 @@ import datetime
 
 actiune = ""
 
-lista_categorii = [item for item in input("Introduceți categoriile de taskuri: ").split()]
-print(f'Lista categoriilor este: {lista_categorii}')
-
-
 linie_task = {
-    "id": [],
-    "task": [],
-    "deadline": [],
-    "persoana_responsabila": [],
-    "categoria_task": [],
-    "status": []
+    "id": [1, 2, 3],
+    "task": ['citit', 'inot', 'prajitura'],
+    "deadline": ['20.08.2022 22:05', '15.07.2022 20:10', '23.11.2022 14:00'],
+    "persoana_responsabila": ['Diana', 'George', 'Roza'],
+    "categoria_task": ['curs', 'sport', 'gatit'],
+    "status": ['activ', 'activ', 'activ']
 }
+#datele initiale asupra carora se vor putea aplica actiunile din meniu
 
 tabel_tasks = pd.DataFrame(linie_task)
-print(tabel_tasks)
 fisier = tabel_tasks.to_csv("tasks.csv")
 
+with open('tasks.csv', 'w') as file:
+    writer = csv.writer(file)
 
-while actiune != 'i':  #daca nu merge pune o alta modalitate de iesire in loc de i
+categ_tasks = pd.DataFrame(linie_task["categoria_task"])
+fisier2 = categ_tasks.to_csv("categorii_tasks.csv")
+
+while actiune != 'i':
 
     actiune = str(input("Actiuni asupra datelor din tabel : \n'l' inseamna listare date (afisare date),"
                         "\n's' inseamna sortare date, \n'f' inseamna filtrare date, \n'ad' inseamna adaugare task-uri, "
                         "\n'e' inseamna editare date,\n'd' inseamna stergere date, "
                         "\n'i' inseamna ca nu mai facem nicio actiune "))
     if actiune == 'l':
-        tabel_tasks = tabel_tasks.sort_values("task") #ok
+        tabel_tasks = tabel_tasks.sort_values("task")
         tabel_tasks.to_csv("tasks.csv")
         print(tabel_tasks)
 
-    elif actiune == "s": #ok
+    elif actiune == "s":
         sortare_date = int(input("Scrie doar cifra aferenta sortarii fiecarei optiuni de mai jos:"
                                      " \n'1' pentru sortare ascendentă task,"
                                      " \n'2' pentru sortare descendentă task,"
@@ -78,29 +79,24 @@ while actiune != 'i':  #daca nu merge pune o alta modalitate de iesire in loc de
         else:
             pass
 
-    elif actiune == 'ad': #merge
-        numar_task = input("Spune-mi id-ul: ")
+    elif actiune == 'ad':
+        numar_task = int(input("Spune-mi id-ul: "))
         linie_task["id"].append(numar_task)
         task = input("Spune-mi task-ul: ")
         linie_task["task"].append(task)
 
-        data_limita = input("Spune-mi data limita: ") #imi creeaza erorare daca las verificarea datei ValueError: All arrays must be of the same length
-        # verificare_data = data_limita
-        # try:
-        #     datetime.datetime.strptime(verificare_data, "%d.%m.%Y %H:%M")
-        #     linie_task["deadline"].append(data_limita)
-        # except ValueError:
-        #     print("Data nu este valida") # de pus sa reintroduca
-
+        data_limita = input("Spune-mi data limita, acesta trebuie sa aiba urmatoarea structura DD.MM.YYYY HH:MM: ")
+        verificare_data = data_limita
         linie_task["deadline"].append(data_limita)
 
         responsabilul = input("Spune-mi persoana responsabila de task: ")
         linie_task["persoana_responsabila"].append(responsabilul)
 
         categorie_task = input("Spune-mi categoria din care face parte task-ul: ")
-        while categorie_task not in lista_categorii:  # functioneaza partial, de facut in asa fel incat sa nu mai treaca la introducerea statusul daca categoria nu este valida si nu vrea sa reintroduca task-ul
+        lista_categorii = linie_task['categoria_task']
+        while categorie_task not in lista_categorii:
             reintroducere = input(
-                "Categoria introdusa nu face parte din lista de categorii. Doriti sa reintroduceti categoria? y/n")
+                "Categoria introdusa nu face parte din lista de categorii. Doriti sa reintroduceti categoria? y/n ")
             if reintroducere == "y":
                 categorie_task = input("Spune-mi categoria din care face parte task-ul: ")
             else:
@@ -112,29 +108,35 @@ while actiune != 'i':  #daca nu merge pune o alta modalitate de iesire in loc de
         tabel_tasks = pd.DataFrame(linie_task)
         tabel_tasks.to_csv("tasks.csv")
         print(tabel_tasks)
-    elif actiune == "d": #ok
+
+    elif actiune == "d":
         task_de_sters = int(input("Alege index-ul de la task-ul ce vrei sa fie sters "))
         tabel_tasks.drop([task_de_sters], inplace=True)
         print(tabel_tasks)
         tabel_tasks.to_csv("tasks.csv")
 
-    elif actiune == "f": #nu functioneaza, imi da erorare
-        # tabel_tasks_filtrat = tabel_tasks
+    elif actiune == "f":
         filtrare_date = int(input("Scrie cifra câmpulului după care se realizeaza filtrarea: \n'1' filtrare dupa task,"
-                                  "\n'2' filtrare dupa data, \n'3' filtrare dupa responsabil,\n'4' filtrare dupa categorie "))
+                                  "\n'2' filtrare dupa data, \n'3' filtrare dupa responsabil,"
+                                  "\n'4' filtrare dupa categorie "))
         if filtrare_date == 1:
-            tabel_tasks = tabel_tasks.query("task", inplace=True)
-            print(tabel_tasks)
+            a = input("Spune-mi task-ul dupa care sa efectuam filtrarea:")
+            date_filtrate = tabel_tasks[tabel_tasks.task.str.contains(a)]
+            print(date_filtrate)
+
         elif filtrare_date == 2:
-            tabel_tasks = tabel_tasks.query("deadline", inplace=True)
-            print(tabel_tasks)
+            a = input("Spune-mi data dupa care sa efectuam filtrarea:")
+            date_filtrate = tabel_tasks[tabel_tasks.deadline.str.contains(a)]
+            print(date_filtrate)
+
         elif filtrare_date == 3:
-            tabel_tasks = tabel_tasks.query("persoana_responsabila", inplace=True)
-            print(tabel_tasks)
-        elif filtrare_date == 4:
-            tabel_tasks = tabel_tasks.query("categoria_task", inplace=True)
-            print(tabel_tasks)
+            a = input("Spune-mi responsabilul dupa care sa efectuam filtrarea:")
+            date_filtrate = tabel_tasks[tabel_tasks.persoana_responsabila.str.contains(a)]
+            print(date_filtrate)
         else:
-            pass
+            a = input("Spune-mi categoria dupa care sa efectuam filtrarea:")
+            date_filtrate = tabel_tasks[tabel_tasks.categoria_task.str.contains(a)]
+            print(date_filtrate)
 
-
+tabel_tasks = pd.DataFrame(linie_task)
+fisier = tabel_tasks.to_csv("tasks.csv")
