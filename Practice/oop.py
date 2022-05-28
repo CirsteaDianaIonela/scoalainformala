@@ -167,22 +167,22 @@
 # cazurile in care avem o scutire medical) fara a deveni negativ
 
 
-class Catalog:
-    def __init__(self, nume, prenume):
-        self.first = nume
-        self.second = prenume
-        self.materii = {}
-        self.absente = 0
-
-    def __str__(self):
-        return f"{self.first, self.second, self.materii, self.absente}"
-
-    def incrementare(self):
-        self.absente += 1
-
-    def stergere(self, numar_absente):
-        if self.absente > numar_absente:
-            self.absente -= numar_absente
+# class Catalog:
+#     def __init__(self, nume, prenume):
+#         self.first = nume
+#         self.second = prenume
+#         self.materii = {}
+#         self.absente = 0
+#
+#     def __str__(self):
+#         return f"{self.first, self.second, self.materii, self.absente}"
+#
+#     def incrementare(self):
+#         self.absente += 1
+#
+#     def stergere(self, numar_absente):
+#         if self.absente > numar_absente:
+#             self.absente -= numar_absente
 
 # Creati a doua clasa numita Extensie1 care sa mosteneasca prima clasa. Clasa materii sa aiba 3 metode:
 # - Prima metoda permite adaugarea prin doi parametrii de intrare a unui sir de
@@ -266,6 +266,129 @@ class Catalog:
 # print(s1.final_grade())
 # print(s2.final_grade())
 
+# Exersare:
+# accesare atribute private, done
+# non private, done
+# accesare atribut de clasa, done
+# folosire ATTR, done
+#isinstance done
+#is si ==, done
+# folosire getter/setter/deleter, done
+# mosteniri, done
+#issubcslass, done
+
+# class Animal:
+#     ochi = 2
+#     def __init__(self, name, legs):
+#         self.nume = name
+#         self.picioare = legs
+#
+#     def stergere(self):
+#         del self.nume
+#
+#     def __str__(self):
+#         return f'{self.nume, self.picioare}'
+#     # @property
+#     # def afisare(self):
+#     #     return self.nume, self.picioare
+#
+#
+# pisica = Animal("Printesa", 4)
+# # print(pisica.afisare)
+#
+# print(pisica)
+
+# class Patrupede(Animal):
+#     def __init__(self, name, legs, eyes):
+#         super().__init__(name,legs)
+#         self.ochi = eyes
+#         print(self.ochi)
+    #
+    # @property
+    # def afisare(self):
+    #     return f'{self.nume, self.legs, self.eyes}'
+
+
+
+# magar = Patrupede("Bobita", 4, 2)
+# print(magar.ochi)
+# print(issubclass(Animal,Patrupede))
+# print(caine,rata)
+# print(caine is rata)
+# print(caine == rata)
+# print(str1 is str2)
+
+    # def __str__(self):
+    #     return f"{self.nume, self.picioare}"
+
+# class Pisica(Animal):
+#     def __init__(self, name, legs, eyes):
+#     super().__init__(name, legs)
+#     self.ochi = eyes
+
+
+    # @property
+    # def afisare(self):
+    #     return self.nume
+
+    # def setare(self, nume):
+    #     self.nume = nume
+
+    # @name.setter:
+    # def name(self, nume):
+    #     self.nume = nume
+    # @stergere.deleter
+    # def stergere(self):
+
+
+# caine = Animal("Max", 4)
+# print(isinstance(caine, Animal))
+# x = "a"
+# print(isinstance(x, int))
+# print(x)
+# print(caine.afisare)
+# caine.nume = 'TUTU'
+# print(caine.setare)
+# print(caine.ochi)
+# # ATTR:
+# print(getattr(caine, 'nume'))# vreau sa accesez valoare numelui
+# print(hasattr(caine, 'nume')) #vreau sa vad daca exista atributul nume in acest obiect
+# setattr(caine, 'nume', 'Gore')#vreau sa schimb numele cainelui din Max in Gore
+# print(caine)
+# delattr(caine, 'nume')#vreau sa sterg atributul picioare din obiectul caine
+# print(caine)
+# print(caine.picioare)
+# print(caine)
+# print(caine._Animal__picioare)
+
+
+#getter/setter/deleter
+
+# class Om():
+#     def __init__(self, nume, varsta):
+#         self.nume = nume
+#         self.varsta = varsta
+#
+#     @property
+#     def name(self):
+#         return self.nume
+#
+#     @name.setter
+#     def schimbare(self, nume):
+#         self.nume = nume
+#
+#     @name.deleter
+#     def stergere(self):
+#         del self.nume
+#
+#     def __str__(self):
+#         return self.nume
+# ob1 = Om("Diana", 27)
+# print(ob1.name)
+# ob1.schimbare = 'Teo'
+# print(ob1)
+# del ob1.stergere
+# print(ob1)
 
 
 
