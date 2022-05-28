@@ -1,0 +1,26 @@
+<html>
+<head>
+    {% block title %}
+    {% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav>
+                    <a class="btn btn-outline-dark" href="/admin">Admin</a>
+                    {% if request.user.is_authenticated %}
+                        <a class="btn btn-outline-warning" href="{% url 'todo:lista_todo' %}">Pending tasks</a>
+                        <a class="btn btn-outline-success" href="{% url 'todo:task_done' %}">Tasks done</a>
+                        <a class="btn btn-outline-danger" href="{% url 'todo:deleted_tasks' %}">Deleted tasks</a>
+                        <a class="btn btn-outline-dark" href="{% url 'logout' %}">Logout</a>
+                    {%endif%}
+                </nav>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
