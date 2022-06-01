@@ -35,9 +35,6 @@
                     </td>
                     <td>
                         <a href="{% url 'todo:modifica' item.id %}" class="btn btn-outline-info">Modify</a>
-                        {% if item.status == "Pending" or item.status == "Done" %}
-                        <a href="{% url 'todo:delete_tasks' item.id %}" class="btn btn-outline-danger">Delete</a>
-                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
